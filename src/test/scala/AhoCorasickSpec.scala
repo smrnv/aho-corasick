@@ -13,6 +13,11 @@ class AhoCorasickSpec extends WordSpec {
       assert(result.length == 14)
     }
 
+    "find 327 matches in file" in {
+      val result = AhoCorasick.find(Set("о"), getFileAsString("article.txt"))
+      assert(result.length == 327)
+    }
+
     "find 3 patterns in string in 4 positions" in {
       val result = AhoCorasick.find(Set("she", "he", "Her"), "Ohhsherfhe")
       assert(result == List(("she", 5), ("he", 5), ("her", 6), ("he", 9)))
